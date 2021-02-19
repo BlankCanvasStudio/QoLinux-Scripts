@@ -1,0 +1,7 @@
+#!/bin/bash 
+mkdir $@ 
+git add $@
+if [[ -n $2 ]]
+then 
+    cd $1
+fi

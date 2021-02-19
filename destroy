@@ -1,0 +1,26 @@
+#!/bin/bash
+source scripts-config
+ARCHIVED=false
+if [[ $1 == -a ]]
+then 
+    ARCHIVED=true
+    shift
+fi
+for REPO in $@ 
+do 
+    if [ ARCHIVED = true ]
+    then 
+        ssh $SERVER_ADDRESS "
+            cd $ARCHIVE_LOCATION;
+            rm -rf $REPO; 
+        "
+    else
+        ssh $SERVER_ADDRESS "
+            cd $DEFAULT_LOCATION;
+            rm -rf $REPO;
+        "
+    fi
+    rm -rf $REPO
+done 
+
+echo destroyed $@

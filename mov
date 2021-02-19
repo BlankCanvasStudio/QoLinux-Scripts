@@ -1,0 +1,10 @@
+#!/bin/bash
+TO_MOVE=${@:1:$#-1}
+LOCATION=${!#}
+
+echo to move: $TO_MOVE 
+echo location: $LOCATION
+
+cp -r $TO_MOVE $LOCATION
+git rm -rf $TO_MOVE
+git add $LOCATION

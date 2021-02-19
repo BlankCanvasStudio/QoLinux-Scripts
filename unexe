@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -z $@ ]
+then 
+    chmod -x * 
+    echo Made Everything executable
+else 
+    chmod -x $@
+    echo Made the following executable: $@
+fi

@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+then
+    if [ -d .git ]
+    then
+        git pull
+    else
+        echo "Please call 'update' on or in a git repo"
+    fi
+else 
+    for FOLDER in $@ 
+    do 
+        cd $FOLDER
+        update
+        cd ..
+    done
+fi

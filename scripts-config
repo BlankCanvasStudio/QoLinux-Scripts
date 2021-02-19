@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Define
+
+ARCHIVE_LOCATION=full-path-to-achive-folder 
+DEFAULT_LOCATION=full-path-to-default-folder
+USER=ssh-server-user-name
+ADDRESS=ssh-server-ip-address 
+SERVER_ADDRESS=$USER@$ADDRESS
+
+# Export 
+
+export DEFAULT_LOCATION
+export ARCHIVE_LOCATION
+export USER 
+export ADDRESS 
+export SERVER_ADDRESS
