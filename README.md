@@ -16,6 +16,7 @@ INSTALLATION:
 - Add that directory to PATH variable (located at /etc/environment) 
 - Fill out and save scripts-config file as follows:
   - ARCHIVE_LOCATION, DEFAULT_LOCATION, USER, and ADDRESSS must be filled out with the values they were assigned above 
+  - NOTE: Make usre to use full paths. It shouldn;t be an issue if you don't but it definitely will not be if you do.
 - QED 
 
 
