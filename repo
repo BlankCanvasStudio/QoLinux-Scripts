@@ -1,5 +1,5 @@
 #!/bin/bash
-source scripts-globals
+source scripts-config
 for NEW_FOLDER in $@
 do
     ssh $SERVER_ADDRESS "
