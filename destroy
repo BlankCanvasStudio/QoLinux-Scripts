@@ -12,15 +12,15 @@ do
     then 
         ssh $SERVER_ADDRESS "
             cd $ARCHIVE_LOCATION;
-            rm -rf $REPO; 
+            sudo rm -rf $REPO; 
         "
     else
         ssh $SERVER_ADDRESS "
             cd $DEFAULT_LOCATION;
-            rm -rf $REPO;
+            sudo rm -rf $REPO;
         "
     fi
-    rm -rf $REPO
+    sudo rm -rf $REPO
 done 
 
 echo destroyed $@
