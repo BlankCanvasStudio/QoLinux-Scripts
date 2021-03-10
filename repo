@@ -1,5 +1,11 @@
 #!/bin/bash
+archive=false
+if [[ "$1" == "-a" ]]
+then 
+  archive=true
+fi 
 source scripts-config
+
 for NEW_FOLDER in $@
 do
     ssh $SERVER_ADDRESS "
@@ -11,6 +17,11 @@ do
 done
 for NEW_FOLDER in $@
 do
-    git clone $SERVER_ADDRESS:$DEFAULT_LOCATION/$NEW_FOLDER
+    if [ "$archive" = true ]
+    then 
+	git clone $SERVER_ADDRESS:$ARCHIVE_LOCATION/$NEW_FOLDER
+    else
+    	git clone $SERVER_ADDRESS:$DEFAULT_LOCATION/$NEW_FOLDER
+    fi
 done 
 echo Added reops: $@ and saved copies to $(pwd)

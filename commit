@@ -1,0 +1,22 @@
+#!/bin/bash
+FILES=""
+MESSAGE=""
+
+until [ $# -eq 0 ]
+do 
+    case "$1" in 
+    -m) 
+	MESSAGE="${@:2}"; 
+	until [ $# -eq 0 ]
+	do 
+	    shift
+	done
+	;;
+    *) 
+	FILES=$FILES$1" "
+	;;	
+    esac 
+    shift
+done 
+git add $FILES
+git commit -m "$MESSAGE"

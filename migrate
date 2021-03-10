@@ -1,4 +1,5 @@
 #!/bin/bash
+source scripts-config
 for TEMP_FOLDER in $@
 do 
     mv ${TEMP_FOLDER} ${TEMP_FOLDER}-temp-123456

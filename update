@@ -1,17 +1,36 @@
 #!/bin/bash
-if [ $# -eq 0 ]
+if [[ $1 == -a ]]
 then
-    if [ -d .git ]
-    then
-        git pull
-    else
-        echo "Please call 'update' on or in a git repo"
-    fi
-else 
-    for FOLDER in $@ 
-    do 
-        cd $FOLDER
-        update
-        cd ..
-    done
+ shift
+ for FOLDER in $@
+ do
+   cd $FOLDER
+   git add * 
+   git commit -a --allow-empty-message -m ''
+   git pull
+   cd ..
+ done
+ update ls -d -- */
+   # This will return only directories in current directory
+else
+  if [ $# -eq 0 ]
+  then
+      if [ -d .git ]
+      then
+          git add * 
+          git commit -a --allow-empty-message -m ''
+          git pull
+      else
+          echo "Please call 'update' on or in a git repo"
+      fi
+  else
+      for FOLDER in $@
+      do
+          cd $FOLDER
+	  git add *
+          git commit -a --allow-empty-message -m ''
+          git pull
+          cd ..
+      done
+  fi
 fi

@@ -1,14 +1,27 @@
 #!/bin/bash
-if [ -z "$@" ]
+if [[ $1 == "-a" ]]
+
 then
-    git add *
-    git commit
-    git push
-    echo Saved All
-else 
-    git add *
-    git commit -m "$@"
-    git push
-    echo Saved $@
+  shift 
+  while [ $# -ne 0 ]
+  do
+     cd $1
+     save "updating" >> /dev/null
+     cd ..
+     shift
+  done 
+
+else
+  if [ -z "$@" ]
+  then
+      git add *
+      git commit
+      git push
+      echo Saved All
+  else 
+      git add *
+      git commit -m "$@"
+      git push
+      echo Saved $@
+  fi
 fi
-    

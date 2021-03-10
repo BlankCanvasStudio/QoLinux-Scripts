@@ -2,10 +2,10 @@
 
 # Define
 
-ARCHIVE_LOCATION=full-path-to-achive-folder 
-DEFAULT_LOCATION=full-path-to-default-folder
+ARCHIVE_LOCATION=full-path-to-achive-folder  
+DEFAULT_LOCATION=full-path-to-default-folder 
 USER=ssh-server-user-name
-ADDRESS=ssh-server-ip-address 
+ADDRESS=ssh-server-ip-address
 SERVER_ADDRESS=$USER@$ADDRESS
 
 # Export 

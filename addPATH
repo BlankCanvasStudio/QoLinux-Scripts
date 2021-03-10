@@ -1,2 +1,3 @@
 #!/bin/bash
 export PATH=$PATH:$(pwd)
+echo "added $(pwd) to PATH (if you souced this script)"

@@ -1,7 +1,7 @@
 #!/bin/bash
 source scripts-config
 ARCHIVED=false 
-if [[ $1 == -a ]] || [[ $1 == archive ]] || [[ $1 == -archive ]]
+if [[ "$1" == "-a" ]] || [[ "$1" == "archive" ]] || [[ "$1" == "-archive" ]]
     # This may come back to bite my in the butt cause people will want to use that name
     then
         ARCHIVED=true 
@@ -9,7 +9,7 @@ if [[ $1 == -a ]] || [[ $1 == archive ]] || [[ $1 == -archive ]]
 fi
 if [ $# -eq 0 ]
 then 
-    if [ $ARCHIVED = true ]
+    if [ "$ARCHIVED" = true ]
     then 
         ssh $SERVER_ADDRESS "
             cd $ARCHIVE_LOCATION;
@@ -24,7 +24,7 @@ then
 else 
     for REPO in $@ 
     do 
-        if [ ARCHIVED = true ]
+        if [ $ARCHIVED = true ]
         then
             git clone $SERVER_ADDRESS:$ARCHIVE_LOCATION/${REPO}
         else 
